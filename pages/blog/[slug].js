@@ -9,9 +9,11 @@ const getHTML = async (markdown) => {
   return result.toString();
 };
 
-export default () => {
+const Slug = () => {
   const {
     query: { slug },
   } = useRouter();
   return <div>{slug}</div>;
 };
+
+export default Slug

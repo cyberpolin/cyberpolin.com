@@ -66,18 +66,18 @@ export default function Home() {
             from now started with RN (React Native).
           </p>
           <p>
-            I've worked at my state government as a project manager, so I know I
+            I&#39;ve worked at my state government as a project manager, so I know I
             can handle several projects at the time with the right team, but
             also I am pretty good coding myself (which is what I love the most).
             I lived at SF 5 years ago where I attended a Dev boot camp and where
             I started working with RN.
           </p>
           <p>
-            Now I live in Mexico, where I'm from and have being working in
+            Now I live in Mexico, where I&#39;m from and have being working in
             several RN projects, some of them with Backend developed by my self,
             some other with a BE team. My las work was with Inkind, where I
             maintain 3 apps distributed on USA, Canada, Australia and New
-            Zealand, I've been present on two major redesigns and had the
+            Zealand, I&#39;ve been present on two major redesigns and had the
             opportunity to lead the dev team. But enough about me, Let me know
             if you guys want to talk further I would love to.
           </p>
