@@ -1,0 +1,104 @@
+$bg-color: #F2F6F9
+$light-blue: #004283
+$dark-blue: #002850
+
+// content is a frame letting pass everything behind. and snapping
+.content
+  width: 100vw
+  height: 100vh
+  scroll-snap-points-y: repeat(500px)
+  scroll-snap-type: y mandatory
+  scroll-snap-type: mandatory
+  overflow: auto
+
+// this will be the actual content container
+body .content section
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100vw
+  height: 100vh
+  scroll-snap-align: start
+
+.Row
+  display: flex
+  flex-direction: row
+  flex: 1
+  height: 100%
+
+.odd //every other section
+  flex-direction: row-reverse
+  background-color: $bg-color
+
+.Aside
+  display: flex
+  flex-direction: column
+  flex: 3
+  padding: 1em 2em
+  background: linear-gradient(180deg, $light-blue 0%, $dark-blue 100%)
+
+.PortfolioAside
+  display: flex
+  flex-direction: column
+  flex: 3
+  height: 70%
+  align-self: center
+  padding: 0 2em 0 0
+
+.pOdd
+  padding: 0 0 0 2em
+
+
+.PortfolioAside h2 
+  color: $light-blue
+  
+.Content
+  display: flex
+  align-items: center
+  justify-content: center
+  flex: 10
+
+.Hi
+  background-color: $bg-color
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+
+.subtitle
+  font-size: 15px
+  color: #FFA400
+  font-weight: 300
+
+.H2
+  font-size: 1.8em
+  color: #FFA400
+  font-weight: 700
+  margin: 0.8em 0
+
+.personalBullets
+  color: #FFFFFF
+  margin-left: 0
+  padding-left: 20px
+  li
+    margin: 15px 0
+
+.mainPicture
+  border-radius: 250%
+
+.personalInfoMargin
+  padding: 2em
+  
+.imageContainer
+  width: 50em
+  margin-right: 1em
+
+//Only show this on big screens
+@media (max-height: 800px)
+  .H1
+    display:none
+  
+  .subtitle
+    display:none
+  

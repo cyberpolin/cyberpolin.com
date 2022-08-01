@@ -27,24 +27,83 @@ $dark-blue: #002850
 .container 
   display: flex
 
+
 .mainPicture
   border-radius: 250%
 
 .aside
-  min-width: 300px
-  max-width: 500px
-  display: inline-block
-  flex: 1
+  width: 30vw
+  height: 100vh
   padding: 2em 3em
   background: linear-gradient(180deg, $light-blue 0%, $dark-blue 100%)
+  position: fixed
+
+.wrapper
+  height: 300vh
+  display: flex
+  flex-direction: column
+    scroll-snap-type: mandatory
+  scroll-snap-points-y: repeat(300px)
+  scroll-snap-type: y mandatory
+
+.main
+  position:relative
+  display: block
+  width:70vw
+  height: 100vh
+  
+  margin: 0 0 0 30vw
+  scroll-snap-align: start
+
+.portfolioItem
+  width:70vw
+  height: 100vh
+  
+  margin: 0 0 0 30vw
+  scroll-snap-align: start
+
 
 .mainContent
-  flex: 1
-  min-width: 500px
+  width: 70vw
   padding: 4em 0
   display: inline-block
+  right: 0
+  position: absolute
 
 .personalInfo
-  padding: 4em 5em
   background-color: $bg-color
+  height: 500px
+  width: 70vw
+  position: absolute
+  top: 50%
+  left: 30vw
+  transform: translateY(-50%)
+
+.personalInfoMargin
+  margin: 2em
+  
+  
+.row
+  display: flex
+  flex-direction: row
+
+.column
+  flex-direction: column
+
+.imageContainer
+  width: 50em
+  margin-right: 1em
+
+.projectDescription
+  flex:3
+  padding: 1em 5em
+
+.projectGalery
+  flex:7
+
+.odd
+  flex-direction: row-reverse
+  
+.wholeHeight
+  height: 100vh
   
