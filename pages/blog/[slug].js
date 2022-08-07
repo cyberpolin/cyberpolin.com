@@ -3,17 +3,40 @@
 import remark from "remark";
 import html from "remark-html";
 import { useRouter } from "next/router";
+import { getMdContent } from "../lib/api";
 
-const getHTML = async (markdown) => {
-  const result = await remark().use(html).process(markdown);
-  return result.toString();
+const Slug = (props) => {
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: props?.md?.content || "loading" }}
+    />
+  );
 };
 
-const Slug = () => {
-  const {
-    query: { slug },
-  } = useRouter();
-  return <div>{slug}</div>;
+export const getStaticProps = async ({ params: { slug } }) => {
+  // const {
+  //   query: { slug },
+  // } = useRouter();
+  console.log("> ", slug);
+  const md = getMdContent([`${slug}.md`], true);
+  console.log(">> ", slug);
+  // console.log(">> ", md);
+  return {
+    props: {
+      md: md[0],
+    },
+  };
+};
+
+export const getStaticPaths = async (props) => {
+  console.log("stati", props);
+  return {
+    paths: [
+      // String variant:
+      "/blog/first-post",
+    ],
+    fallback: true,
+  };
 };
 
 export default Slug

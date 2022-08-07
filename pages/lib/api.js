@@ -4,14 +4,22 @@ import matter from "gray-matter";
 import { micromark } from "micromark";
 
 const portfolioDirectory = join(process.cwd(), "pages/portfolio");
+const blogDirectory = join(process.cwd(), "pages/blog/docs");
 
 export function getPortfolio() {
   return fs.readdirSync(portfolioDirectory);
 }
 
-export function getMdContent(files) {
+export function getPosts() {
+  return fs.readdirSync(blogDirectory);
+}
+
+export function getMdContent(files, blog = false) {
   function getObject(file) {
-    const content = fs.readFileSync(`${portfolioDirectory}/${file}`, "utf8");
+    const content = fs.readFileSync(
+      `${blog ? blogDirectory : portfolioDirectory}/${file}`,
+      "utf8"
+    );
     const mdObject = matter(content);
 
     return {
