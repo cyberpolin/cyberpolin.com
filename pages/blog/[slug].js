@@ -1,6 +1,6 @@
 // https://raw.githubusercontent.com/cyberpolin/cyberpolinPosts/main/%23%20Administrando%20varias%20versiones%20de%20Node%20al%20mismo
 
-import getMdContent from "../lib/api";
+import getMdContent from "../../lib/api";
 
 const Slug = (props) => {
   return (
@@ -26,11 +26,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
 };
 
 export const getStaticPaths = async (props) => {
-  console.log("stati", props);
   return {
     paths: [
       // String variant:
-      "/blog/first-post",
+      "/blog/next-markdown-implementation",
     ],
     fallback: true,
   };

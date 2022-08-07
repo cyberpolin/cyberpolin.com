@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPosts } from "../lib/api";
+import { getPosts } from "../../lib/api";
 
 const getSlug = (a) => {
   return a.replace(/\[\d\]-/, "").replace(/.md/, "");
