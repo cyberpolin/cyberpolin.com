@@ -1,9 +1,6 @@
 // https://raw.githubusercontent.com/cyberpolin/cyberpolinPosts/main/%23%20Administrando%20varias%20versiones%20de%20Node%20al%20mismo
 
-import remark from "remark";
-import html from "remark-html";
-import { useRouter } from "next/router";
-import { getMdContent } from "../lib/api";
+import getMdContent from "../lib/api";
 
 const Slug = (props) => {
   return (

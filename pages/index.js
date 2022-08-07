@@ -6,7 +6,7 @@ import cyberpolin from "../public/img/cyberpolin.jpeg";
 
 import Skill from "../components/Skill";
 import { Name } from "../components/Name";
-import { getMdContent, getPortfolio } from "./lib/api";
+import getMdContent, { getPortfolio } from "../lib/api";
 
 export default function Home(props) {
   return (
