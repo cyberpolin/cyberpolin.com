@@ -9,8 +9,8 @@ const BlogList = ({ articles }) => (
   <>
     <h1>I am me</h1>
     <ul>
-      {articles?.map((a) => (
-        <li>
+      {articles?.map((a, i) => (
+        <li key={i}>
           <p>{getSlug(a)}</p>
           <Link href={`blog/${getSlug(a)}`}>a</Link>
         </li>
