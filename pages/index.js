@@ -6,8 +6,9 @@ import cyberpolin from "../public/img/cyberpolin.jpeg";
 
 import Skill from "../components/Skill";
 import { Name } from "../components/Name";
+import { getMdContent, getPortfolio } from "./lib/api";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className={styles.content}>
       <section>
@@ -78,33 +79,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <div className={`${styles.Row} ${styles.odd}`}>
-          {/* <div className={`${styles.Row} ${styles.odd}`}> */}
-          <div className={`${styles.PortfolioAside}`}>
-            {/* <div className={`${styles.PortfolioAside} ${styles.pOdd}`}> */}
-            <h2>Inkind Mobile App</h2>
-            <p>
-              Inkind is a really global app present on USA, Australia, New
-              Zealand and recently Canada. I&#39;ve been working for them as a
-              freelancer for more than 4 years now.
-            </p>
-            <p>
-              This is a set of two apps using a RoR backend, both apps were
-              coded with React Native using Typescript, an we set up a CI tool
-              using appcenter, so the deploy and even distrivution for testing
-              are automatic, both apps are big and we use push notifications,
-              firebase integrations, apple payment and a bunch of animations
-              using React-animations which allow to use a thread other than the
-              one JS use, so they look and feel
-              <b> fast</b>.
-            </p>
-          </div>
-          <div className={styles.Content}>
-            <img src="img/0.png" alt="Inkind Mobile App" />
-          </div>
-        </div>
-      </section>
+      {props.portfolio.map(({ data, content }, i) => {
+        const idOdd = i % 2;
+        return (
+          <section key={i}>
+            <div className={`${styles.Row} ${!idOdd && styles.odd}`}>
+              <div
+                className={`${styles.PortfolioAside}`}
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+              <div className={styles.Content}>
+                {/* TODO make carousel */}
+                <img src={data.images[0]} alt="Inkind Mobile App" />
+              </div>
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const allPortfolio = getPortfolio();
+  const mdContent = getMdContent(allPortfolio);
+
+  return {
+    props: { portfolio: mdContent },
+  };
+};
