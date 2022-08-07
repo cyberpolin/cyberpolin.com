@@ -1,12 +1,25 @@
-// https://raw.githubusercontent.com/cyberpolin/cyberpolinPosts/main/%23%20Administrando%20varias%20versiones%20de%20Node%20al%20mismo
-
 import getMdContent from "../../lib/api";
+import styles from "../../styles/Slug.module.sass";
 
 const Slug = (props) => {
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: props?.md?.content || "loading" }}
-    />
+    <>
+      <div className={`${styles.Title} hero`}>
+        {props?.md?.data?.title && <h2>{props?.md?.data?.title}</h2>}
+      </div>
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: props?.md?.content || "loading" }}
+      />
+      <style jsx>
+        {`
+          .hero {
+            background: no-repeat center url(${props?.md?.data?.main_image});
+            background-size: cover;
+          }
+        `}
+      </style>
+    </>
   );
 };
 
