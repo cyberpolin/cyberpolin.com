@@ -11,13 +11,7 @@ const Slug = (props) => {
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  // const {
-  //   query: { slug },
-  // } = useRouter();
-  console.log("> ", slug);
   const md = getMdContent([`${slug}.md`], true);
-  console.log(">> ", slug);
-  // console.log(">> ", md);
   return {
     props: {
       md: md[0],
@@ -35,4 +29,4 @@ export const getStaticPaths = async (props) => {
   };
 };
 
-export default Slug
+export default Slug;

@@ -1,6 +1,7 @@
 ---
-images: ['img/0.png', 'img/0.png']
+images: ["img/0.png", "img/0.png"]
 ---
+
 # Inkind Mobile App
 
 Inkind is a really global app present on USA, Australia, New Zealand and recently Canada. I&#39;ve been working for them as a freelancer for more than 4 years now.
