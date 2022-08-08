@@ -18,6 +18,7 @@
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
     "sass": "^1.45.2",
+    "styled-components": "^5.3.5",
     "unified": "^10.1.2"
   },
   "devDependencies": {
