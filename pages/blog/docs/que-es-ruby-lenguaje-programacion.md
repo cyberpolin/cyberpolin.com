@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-04-30T12:00:00.000Z'
 lang: es
 pos: 7
-hero_image: ../static/043021/5-tips-como-ser-mejor-desarrollador.jpeg
 hook_text: Si ya conoces Ruby, pero aun no quieres saber más de el, estas en el lugar adecuado. Creado por Matz
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---

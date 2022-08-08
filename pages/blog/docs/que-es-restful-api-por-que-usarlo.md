@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-03-12T12:00:00.000Z'
 lang: es
 pos: 4
-hero_image: ../static/031221/restful-api.jpg
 hook_text: Que dos o mas aplicativos se comuniquen entre si nunca fue más fácil, pero hay que seguir ciertas reglas para hacernos la vida más amena, aqui, te digo como...
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---

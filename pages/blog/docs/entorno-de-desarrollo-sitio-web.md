@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-02-18T12:00:00.000Z'
 lang: es
 pos: 2
-hero_image: ../static/021821/desarrollo-web.png
 hook_text: Configurar tu entorno de desarrollo es cosa facil, sigue estos sencillos pasos y estaras listo para desarrollar facilmente.
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---

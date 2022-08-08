@@ -1,6 +1,11 @@
 import getMdContent from "../../lib/api";
 import styles from "../../styles/Slug.module.sass";
 
+const randomImage = () => {
+  const randomIndex = [1, 2, 3, 4, 5][Math.floor(Math.random() * 5)];
+  return `https://res.cloudinary.com/kondosoft-com/image/upload/v1659903360/cyberpolin.com/${randomIndex}.png`;
+};
+
 const Slug = (props) => {
   return (
     <>
@@ -14,7 +19,10 @@ const Slug = (props) => {
       <style jsx>
         {`
           .hero {
-            background: no-repeat center url(${props?.md?.data?.main_image});
+            background: no-repeat center
+              url(${props?.md?.data?.main_image
+                ? props?.md?.data?.main_image
+                : randomImage()});
             background-size: cover;
           }
         `}

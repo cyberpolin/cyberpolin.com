@@ -5,14 +5,16 @@ const getSlug = (a) => {
   return a.replace(/\[\d\]-/, "").replace(/.md/, "");
 };
 
+const getReadable = (a) => {
+  return getSlug(a).replace("-", " ");
+};
+
 const BlogList = ({ articles }) => (
   <>
-    <h1>I am me</h1>
     <ul>
       {articles?.map((a, i) => (
         <li key={i}>
-          <p>{getSlug(a)}</p>
-          <Link href={`blog/${getSlug(a)}`}>a</Link>
+          <Link href={`blog/${getSlug(a)}`}>{getReadable(a)}</Link>
         </li>
       ))}
     </ul>

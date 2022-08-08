@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-04-09T12:00:00.000Z'
 lang: es
 pos: 6
-hero_image: ../static/040921/pair-programing-programacion-pares.jpg
 hook_text: Si quieres ser un mejor desarrollador una de las herramientas que más te van a ayudar es la programación en pares, o pair programing. Ya seas un desarrollador consumado, o aun estés aprendiendo.
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---

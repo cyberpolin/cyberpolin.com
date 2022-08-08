@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-01-10T12:00:00.000Z'
 lang: es
 pos: 1
-hero_image: ../static/10012021/lady-rosca.png
 ---
 
 Hace más de una década la fiebre del emprendimiento se apodero del mundo y latinoamérica, frases como *emprendedor serial*, *entrepreneur* y muchas otras son ahora obligadas en conversaciones de cualquier persona con aspiraciones de hacer un negocio y quienes están o creen estar en este "mundillo", el mundillo del emprendimiento.

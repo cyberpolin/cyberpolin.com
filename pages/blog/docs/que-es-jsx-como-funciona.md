@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-12-12T12:00:00.000Z'
 lang: es
 pos: 9
-hero_image: ../static/092621/5-tips-como-ser-mejor-desarrollador.jpeg
 hook_text: La diferencía entre un desarrolladore Jr y Senior, esta en la entrega, no en el código
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---

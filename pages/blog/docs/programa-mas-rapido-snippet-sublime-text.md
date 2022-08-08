@@ -4,7 +4,6 @@ author: Dr Kondo (Carlos González)
 date: '2021-03-04T12:00:00.000Z'
 lang: es
 pos: 3
-hero_image: ../static/030421/sublime-text-snippet.jpg
 hook_text: Si estas buscando como desarrollar más rapido el uso de snippets te puede ayudar, te enseño como hacer snippets en sublime text
 yt_url: https://youtu.be/E5iLs8ICW9g
 ---
