@@ -7,8 +7,21 @@ import cyberpolin from "../public/img/cyberpolin.jpeg";
 import Skill from "../components/Skill";
 import { Name } from "../components/Name";
 import getMdContent, { getPortfolio } from "../lib/api";
+import { useEffect, useState } from "react"
+const skillNames = [
+  "React Native",
+  "JavaScript",
+  "TypeScript",
+  "HTML + CSS",
+  "Comunication Skills",
+  "Spoken & written English",
+]
 
 export default function Home(props) {
+  const [skillValues, setSkillValues] = useState([0, 0, 0, 0, 0, 0])
+
+  useEffect(() => setSkillValues([90, 90, 65, 95, 80, 87]), [])
+
   return (
     <div className={styles.content}>
       <section>
@@ -18,12 +31,9 @@ export default function Home(props) {
             <Name>Carlos González</Name>
             <p className={styles.subtitle}>React Native Developer</p>
             <span className={styles.H2}>Skills</span>
-            <Skill level={85}> React Native </Skill>
-            <Skill level={90}> JavaScript </Skill>
-            <Skill level={65}> Typescript </Skill>
-            <Skill level={95}> HTML + CSS </Skill>
-            <Skill level={80}> Comunication Skills </Skill>
-            <Skill level={87}> Spoken & written English </Skill>
+            {skillNames.map((skill, i) => (
+              <Skill level={skillValues[i]}>{skill} </Skill>
+            ))}
             <span className={styles.H2}>Contact Info</span>
             <ul className={styles.personalBullets}>
               <li>Calle el Aguila #344. Tabasco, Mexico</li>
@@ -80,7 +90,7 @@ export default function Home(props) {
       </section>
 
       {props.portfolio.map(({ data, content }, i) => {
-        const idOdd = i % 2;
+        const idOdd = i % 2
         return (
           <section key={i}>
             <div className={`${styles.Row} ${!idOdd && styles.odd}`}>
@@ -94,10 +104,27 @@ export default function Home(props) {
               </div>
             </div>
           </section>
-        );
+        )
       })}
+      <div className={styles.contact}>
+        <div className={styles.left}>
+          <h3>Get a quote!</h3>
+          <p>
+            I'll be glad to read from you and help you with your project. Let's
+            make a great app together!
+          </p>
+        </div>
+        <div className={styles.right}>
+          <form>
+            <input name="name" placeholder="What's your name?" />
+            <input name="name" placeholder="How can I get in touch?" />
+            <textarea name="name" placeholder="What can I do for you?" />
+            <button type="submit">Let me hear it...</button>
+          </form>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export const getStaticProps = async () => {
