@@ -8,7 +8,6 @@ const GetQuote = ({ from, name, text }) => {
     setData()
     setStatus("loading")
     try {
-      console.log("tring")
       const data = await fetchAPI.post("/email", {
         from,
         name,
