@@ -139,7 +139,7 @@ export default function Home(props) {
             <div className={styles.tyLeft}>
               <h3>Great Scott!</h3>
               <p>
-                Excelent news, I'll get in touch asap, and we will rock that
+                Excelent news, I&#39;ll get in touch asap, and we will rock that
                 project!
               </p>
               <p>
@@ -166,10 +166,10 @@ export default function Home(props) {
         ) : (
           <>
             <div className={styles.left}>
-              <h3>Let's make a great app together!</h3>
+              <h3>Let&#39;s make a great app together!</h3>
               <p>
-                I'll be glad to read from you and help you with your project.
-                Get a quote!
+                I&#39;ll be glad to read from you and help you with your
+                project. Get a quote!
               </p>
             </div>
             <div className={styles.right}>
@@ -184,7 +184,7 @@ export default function Home(props) {
                   onChange={(e) => {
                     setForm({ ...form, name: e.target.value })
                   }}
-                  placeholder="What's your name?"
+                  placeholder="What&#39;s your name?"
                   className={errors.path === "name" && styles.inputError}
                 />
                 {errors.path === "name" && (
