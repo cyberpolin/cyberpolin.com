@@ -2,6 +2,8 @@ $bg-color: #F2F6F9
 $light-blue: #004283
 $dark-blue: #002850
 $yellow: #FFA400
+$yellow50: #F2F6F995
+$error: #BD1C07
 
 // content is a frame letting pass everything behind. and snapping
 .content
@@ -28,19 +30,53 @@ body .content section
   padding: 50px
   color: $yellow
   display: flex
+  justify-content: space-between
 
-.right
-  flex: 3
+.column
+  flex-direction: column
 
 .right button
   border: 1px solid
   border-color: $yellow
   border-radius: 50px
-  padding: 20px
+  padding: 15px
   background-color: #00000000
+  color: $yellow50
+  opacity: 0.2
+  transition: opacity 0.5s
 
+.showSubmit
+  opacity: 1 !important
+
+.right
+  flex: 3
+  
 .left
   flex: 2
+
+.tyRight
+  flex: 1
+  display: flex
+  justify-content: flex-end
+  .mainPicture
+    border-radius: 50%
+
+
+.tyLeft
+  flex: 2
+
+.myVideos
+  text-decoration: underline
+  &:before
+    width: 25px
+    height: 25px
+    display: inline-block
+    background: #000
+    content: " "
+    background: url('/img/youtube.png') no-repeat center
+    background-size: contain
+    margin: 0 5px
+    vertical-align: middle
 
 .contact form
     display: flex
@@ -54,6 +90,7 @@ body .content section
   background-color: $light-blue
   width: 100%
   margin-bottom: 20px
+  color: $yellow50
 
 .contact textarea
   border: 1px solid $yellow
@@ -63,6 +100,7 @@ body .content section
   width: 100%
   min-height: 100px
   margin-bottom: 20px
+  color: $yellow50
 
 
 
@@ -134,4 +172,16 @@ body .content section
 .imageContainer
   width: 50em
   margin-right: 1em
-  
+
+.error
+  color: $error
+  text-shadow: 0px 0px 10px #000
+  font-size: 12px
+  padding: 0
+  display: inline-block
+  width: 100%
+  margin: -15px 0px 10px 0px
+  padding-left: 10px
+
+.inputError
+  border-color: $error !important
