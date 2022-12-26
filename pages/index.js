@@ -150,7 +150,7 @@ export default function Home(props) {
                 >
                   youtube videos
                 </a>{" "}
-                where I show some ideas and how to's
+                where I show some ideas and how to&#39;s
               </p>
               <p>Please subscribe!</p>
             </div>
