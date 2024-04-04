@@ -1,0 +1,3 @@
+query CREATE_PAYMENT_IF_DONT_EXIST($id: ID!) {
+  createPayment(id: $id)
+}

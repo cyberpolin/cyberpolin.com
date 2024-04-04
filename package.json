@@ -5,13 +5,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ssl": "npx local-ssl-proxy --key local.cyberpolin.com-key.pem --cert local.cyberpolin.com.pem --source 6001 --target 3000"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.9",
     "axios": "^1.2.1",
     "gray-matter": "^4.0.3",
     "micromark": "^3.0.10",
     "next": "latest",
+    "next-recaptcha-v3": "^1.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remark": "^14.0.2",
@@ -24,6 +27,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/node": "^20.12.4",
     "@types/react": "^18.0.15",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",

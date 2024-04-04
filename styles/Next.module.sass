@@ -24,13 +24,22 @@ body .content section
   scroll-snap-align: start
 
 .contact
-  width: 100%
-  scroll-snap-align: start
-  background: linear-gradient(180deg, $light-blue 0%, $dark-blue 100%)
-  padding: 50px
   color: $yellow
+  flex-direction: column
+  background: linear-gradient(180deg, $light-blue 0%, $dark-blue 100%)
+  width: 100%
+  padding: 50px
   display: flex
-  justify-content: space-between
+  scroll-snap-align: start
+  @media (min-width: 640px)
+    flex-direction: row
+    width: 100%
+    scroll-snap-align: start
+    background: linear-gradient(180deg, $light-blue 0%, $dark-blue 100%)
+    padding: 50px
+    color: $yellow
+    display: flex
+    justify-content: space-between
 
 .column
   flex-direction: column
@@ -51,15 +60,23 @@ body .content section
 .right
   flex: 3
   
+.rightRight
+  flex: 1
+  @media (min-width: 640px)
+    flex: 3
+    margin-left: 120px
+    
 .left
   flex: 2
 
 .tyRight
-  flex: 1
-  display: flex
-  justify-content: flex-end
-  .mainPicture
-    border-radius: 50%
+  margin: 0 auto
+  @media (min-width: 640px)
+    flex: 1
+    display: flex
+    justify-content: flex-end
+    .mainPicture
+      border-radius: 50%
 
 
 .tyLeft
@@ -185,3 +202,8 @@ body .content section
 
 .inputError
   border-color: $error !important
+
+  @media (min-width: 640) 
+    .contact 
+      display: none
+  
