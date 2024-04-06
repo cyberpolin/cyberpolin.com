@@ -2,31 +2,41 @@ import Image from "next/image"
 import styles from "/styles/Next.module.sass"
 
 import cyberpolin from "/public/img/cyberpolin.jpeg"
-import { useEffect, useState } from "react"
+
 import * as yup from "yup"
 
 import UseGetQuote from "../../hooks/UseGetQuote"
-const formSchema = yup.object().shape({
-  text: yup.string().required(),
-  from: yup.string().required().email(),
-  name: yup.string().required(),
+import { useFormik } from "formik"
+
+type errorProps = {
+  error: boolean | { path: string; message: string }
+}
+
+const validationSchema = yup.object().shape({
+  text: yup.string().required().min(3),
+  from: yup.string().required().min(3).email(),
+  name: yup.string().required().min(3),
 })
+
 const HireMe = () => {
-  const [form, setForm] = useState()
-  const [errors, setErrors] = useState(true)
-  const { status, data, getQuote } = UseGetQuote({ ...form })
-  console.log("status", status)
-  const validate = async () => {
-    formSchema
-      .validate(form)
-      .then((valid) => setErrors(false))
-      .catch((err) => setErrors(err))
+  const initialValues = {
+    name: "",
+    from: "",
+    text: "",
   }
 
-  useEffect(() => {
-    if (form) validate()
-  }, [form])
+  const { getQuote, data, status } = UseGetQuote(initialValues)
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values: { name: string; from: string; text: string }) => {
+      //@ts-ignore
+      getQuote(values)
+    },
+  })
+
+  console.log("formik", formik)
   switch (status) {
     case "error":
       return (
@@ -58,6 +68,7 @@ const HireMe = () => {
                 <a
                   className={styles.myVideos}
                   target="_blank"
+                  rel="noreferrer"
                   href="https://www.youtube.com/@carlosvasconcelos8266/videos"
                 >
                   youtube videos
@@ -68,6 +79,7 @@ const HireMe = () => {
             </div>
             <div className={styles.tyRight}>
               <Image
+                alt="fullstack Javascript developer - Carlos Vasconcelos Cyberpolin"
                 src={cyberpolin}
                 className={styles.mainPicture}
                 width={180}
@@ -91,45 +103,43 @@ const HireMe = () => {
             <div className={styles.right}>
               <form
                 onSubmit={(e) => {
-                  e.preventDefault()
-                  getQuote()
+                  formik.handleSubmit(e)
                 }}
               >
                 <input
                   name="name"
-                  onChange={(e) => {
-                    setForm({ ...form, name: e.target.value })
-                  }}
+                  onChange={formik.handleChange}
                   placeholder="What&#39;s your name?"
-                  className={errors.path === "name" && styles.inputError}
                 />
-                {errors.path === "name" && (
-                  <span className={styles.error}>{errors.message}</span>
+                {formik.errors["name"] && (
+                  <span className={styles.error}>{formik.errors["name"]}</span>
                 )}
                 <input
                   name="from"
-                  onChange={(e) => setForm({ ...form, from: e.target.value })}
+                  onChange={formik.handleChange}
                   placeholder="your@email.com"
-                  className={errors.path === "from" && styles.inputError}
                 />
-                {errors.path === "from" && (
-                  <span className={styles.error}>{errors.message}</span>
+                {formik.errors["from"] && (
+                  <span className={styles.error}>{formik.errors["from"]}</span>
                 )}
+
                 <textarea
                   name="text"
-                  onChange={(e) => setForm({ ...form, text: e.target.value })}
+                  onChange={formik.handleChange}
                   placeholder="What can I do for you?"
-                  className={errors.path === "text" && styles.inputError}
                 />
-                {errors.path === "text" && (
-                  <span className={styles.error}>{errors.message}</span>
+                {formik.errors["text"] && (
+                  <span className={styles.error}>{formik.errors["text"]}</span>
                 )}
+
                 <button
-                  className={!errors && styles.showSubmit}
+                  className={
+                    formik.isValid && formik.dirty && styles.showSubmit
+                  }
                   type="submit"
-                  disabled={errors}
+                  disabled={!formik.isValid || formik.isSubmitting}
                 >
-                  {status === "loading" ? "Loading" : "Let me hear it..."}
+                  {formik.isSubmitting ? "Loading" : "Let me hear it..."}
                 </button>
               </form>
             </div>
