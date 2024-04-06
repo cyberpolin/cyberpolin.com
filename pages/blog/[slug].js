@@ -16,19 +16,21 @@ const Slug = (props) => {
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: props?.md?.content || "loading" }}
       />
-      <style jsx>
+      <style>
         {`
           .hero {
             background: no-repeat center
-              url(${props?.md?.data?.main_image
-                ? props?.md?.data?.main_image
-                : randomImage()});
+              url(${
+                props?.md?.data?.main_image
+                  ? props?.md?.data?.main_image
+                  : randomImage()
+              });
             background-size: cover;
           }
         `}
       </style>
     </>
-  );
+  )
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
