@@ -129,12 +129,13 @@ export default function Home(props) {
               />
               <div className={`flex items-center justify-center  `}>
                 {data.youtube?.[0] ? (
+                  // eslint-disable-next-line
                   <iframe
                     width="100%"
                     height="315"
                     src={data.youtube?.[0]}
                     title="YouTube video player"
-                    frameborder="0"
+                    frameorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
