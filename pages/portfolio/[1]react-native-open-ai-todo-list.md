@@ -1,6 +1,7 @@
 ---
-images: []
+images: ['img/openai.png']
 youtube: ['https://www.youtube.com/embed/Pd2CJplmzm0?si=_Q72ipNnsSxSf1h8']
+backgroundColor: '#444552'
 ---
 
 # AI todo list

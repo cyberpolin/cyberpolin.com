@@ -90,7 +90,7 @@ const HireMe = () => {
       )
     default:
       return (
-        <div className={styles.contact}>
+        <div id="hireme" className={`snap-y ${styles.contact}`}>
           <>
             <div className={styles.left}>
               <h3>Let&#39;s make a great app together!</h3>
@@ -99,7 +99,7 @@ const HireMe = () => {
                 project. Get a quote!
               </p>
             </div>
-            <div className={styles.right}>
+            <div className={`mt-8 md:mt-4 ${styles.right}`}>
               <form
                 onSubmit={(e) => {
                   formik.handleSubmit(e)

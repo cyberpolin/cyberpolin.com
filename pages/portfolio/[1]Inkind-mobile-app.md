@@ -1,5 +1,6 @@
 ---
-images: ["img/0.png", "img/0.png"]
+images: ["img/inkind.png"]
+backgroundColor: "#184274"
 ---
 
 # Inkind Mobile App

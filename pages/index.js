@@ -8,6 +8,8 @@ import { Name } from "../components/Name"
 import getMdContent, { getPortfolio } from "../lib/api"
 import { useEffect, useState } from "react"
 import HireMe from "./components/HireMe"
+import PortfolioImg from "../components/PortfolioImg"
+import PortfolioVideo from "../components/PortfolioVideo"
 
 const skillNames = [
   "React Native",
@@ -34,11 +36,30 @@ export default function Home(props) {
         ></meta>
       </Head>
       <section>
-        <div className={`flex h-full lg:flex-row flex-col-reverse `}>
-          <div className={styles.Aside}>
+        <div
+          className={`flex md:h-full lg:flex-row flex-col-reverse relative h-screen`}
+        >
+          <div className="flex md:hidden bg-darkBlue p-2 absolute bottom-0 w-full">
+            <Image
+              src={cyberpolin}
+              className={`rounded-md`}
+              width={52}
+              height={52}
+              alt="Carlos González aka Cyberpolin, fullstack JS developer"
+            />
+            <a
+              className="text-2xl text-primaryYellow items-center flex ml-4 "
+              href="#hireme"
+            >
+              Contact me!
+            </a>
+          </div>
+          <div className={`!hidden md:!flex ${styles.Aside} `}>
             {/* Cyberpolin */}
-            <Name>Carlos González</Name>
-            <p className={styles.subtitle}>React Native Developer</p>
+            <div className="hidden lg:block flex-column">
+              <Name>Carlos González</Name>
+              <p className={styles.subtitle}>React Native Developer</p>
+            </div>
 
             <span className={styles.H2}>Skills</span>
             <div className="flex lg:block flex-wrap">
@@ -48,26 +69,31 @@ export default function Home(props) {
                 </Skill>
               ))}
             </div>
-            <span className={styles.H2}>Contact Info</span>
-            <ul className={styles.personalBullets}>
-              <li>Calle el Aguila #344. Tabasco, Mexico</li>
-              <li>
-                <a href="phone:9931175435">+52 9931 175 435</a>
-              </li>
-              <li>
-                <a href="mailto:iam@cyberpolin.com">iam@cyberpolin.com</a>
-              </li>
-            </ul>
+
+            <div className={`hidden lg:block`}>
+              <span className={styles.H2}>Contact Info</span>
+              <ul className={styles.personalBullets}>
+                <li>Calle el Aguila #344. Tabasco, Mexico</li>
+                <li>
+                  <a href="phone:9931175435">+52 9931 175 435</a>
+                </li>
+                <li>
+                  <a href="mailto:iam@cyberpolin.com">iam@cyberpolin.com</a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div
-            className={`flex items-center justify-center flex-grow lg:flex-grow-0  `}
+            className={`flex items-center justify-center flex-grow lg:flex-grow-0   `}
           >
-            <div className={`bg-bgColor flex content-center items-center`}>
+            <div
+              className={`bg-bgColor flex content-center items-center h-screen md:h-full lg:h-full`}
+            >
               <div
-                className={`p-5 lg:p-10 flex-column lg:block content-center lg: h-1/2`}
+                className={`p-5 lg:p-10 flex-column lg:block content-center lg:h-1/2`}
               >
                 <div
-                  className={`mr-2 flex p-4
+                  className={`hidden lg:mr-2 lg:flex lg:p-4 md:mr-2 md:flex md:p-4 md:justify-center
                 
                 `}
                 >
@@ -80,14 +106,14 @@ export default function Home(props) {
                   />
                 </div>
                 <div className={styles.column}>
-                  <p className="text-lg ld:text-xl pb-4 ">
+                  <p className="text-base ld:text-xl pb-4 ">
                     Hey there, I am <b>Carlos Gonzáles</b>, aka{" "}
                     <a href="https://github.com/cyberpolin">@cyberpolin</a>. I
                     live in Mexico, and have 8+ years involve in development, at
                     first a lot of web, then Back end and five years from now
                     started with RN (React Native).
                   </p>
-                  <p className="text-lg ld:text-xl pb-4 ">
+                  <p className="text-base ld:text-xl pb-4 ">
                     I&#39;ve worked at my state government as a project manager,
                     so I know I can handle several projects at the time with the
                     right team, but also I am pretty good coding myself (which
@@ -95,7 +121,7 @@ export default function Home(props) {
                     attended a Dev boot camp and where I started working with
                     RN.
                   </p>
-                  <p className="text-lg ld:text-xl pb-4 ">
+                  <p className="text-base ld:text-xl pb-4 ">
                     Now I live in Mexico, where I&#39;m from and have being
                     working in several RN projects, some of them with Backend
                     developed by my self, some other with a BE team. My las work
@@ -117,34 +143,29 @@ export default function Home(props) {
         return (
           <section key={i}>
             <div
-              className={`flex ${
+              className={`flex h-screen ${
                 isOdd
-                  ? "flex-col-reverse lg:flex-row"
-                  : "flex-col-reverse lg:flex-row-reverse"
+                  ? "flex-col-reverse md:flex-row"
+                  : "flex-col-reverse md:flex-row-reverse"
               }`}
             >
               <div
-                className={`${styles.PortfolioAside}`}
+                className={`${styles.PortfolioAside} !justify-start md:!justify-center mt-4 md:w-1/2 xl:w-1/3 `}
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-              <div className={`flex items-center justify-center  `}>
+              <div
+                className={`flex items-center justify-center md:w-1/2 xl:w-2/3`}
+              >
                 {data.youtube?.[0] ? (
-                  <iframe
-                    width="100%"
-                    height="315"
-                    src={data.youtube?.[0]}
-                    title="YouTube video player"
-                    // eslint-disable-next-line
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  ></iframe>
+                  <PortfolioVideo
+                    youtube={data.youtube[0]}
+                    uri={data.images[0]}
+                    backgroundColor={data.backgroundColor}
+                  />
                 ) : (
-                  <img
-                    className=" "
-                    src={data.images[0]}
-                    alt="Inkind Mobile App"
+                  <PortfolioImg
+                    uri={data.images?.[0]}
+                    backgroundColor={data.backgroundColor}
                   />
                 )}
               </div>

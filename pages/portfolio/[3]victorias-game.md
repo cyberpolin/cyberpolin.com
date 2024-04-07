@@ -1,5 +1,6 @@
 ---
 images: ["img/victorias-phaser-game.png", "img/0.png"]
+backgroundColor: '#80CFDD'
 ---
 
 # Victoria's Game
