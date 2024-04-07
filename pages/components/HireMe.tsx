@@ -32,7 +32,6 @@ const HireMe = () => {
     validationSchema,
     onSubmit: (values: { name: string; from: string; text: string }) => {
       //@ts-ignore
-
       getQuote(values)
     },
   })
@@ -134,7 +133,9 @@ const HireMe = () => {
 
                 <button
                   className={
-                    formik.isValid && formik.dirty && styles.showSubmit
+                    formik.isValid && formik.dirty
+                      ? "!opacity-100"
+                      : "!opacity-20"
                   }
                   type="submit"
                   disabled={!formik.isValid || formik.isSubmitting}

@@ -1,9 +1,9 @@
 ---
 images: []
-youtube: ['https://youtu.be/Pd2CJplmzm0']
+youtube: ['https://www.youtube.com/embed/Pd2CJplmzm0?si=_Q72ipNnsSxSf1h8']
 ---
 
-# Inkind Mobile App
+# AI todo list
 
 Using **React Native**, **open AI** and **react-native-reanimated** I did as an excercise this application from scratch.
 

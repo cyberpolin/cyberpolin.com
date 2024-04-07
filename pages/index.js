@@ -1,9 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Next.module.sass";
-import { Viewport } from "next"
-
-
+import Image from "next/image"
+import styles from "../styles/Next.module.sass"
+import Head from "next/head"
 import cyberpolin from "../public/img/cyberpolin.jpeg"
 
 import Skill from "../components/Skill"
@@ -11,13 +8,6 @@ import { Name } from "../components/Name"
 import getMdContent, { getPortfolio } from "../lib/api"
 import { useEffect, useState } from "react"
 import HireMe from "./components/HireMe"
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-}
 
 const skillNames = [
   "React Native",
@@ -35,6 +25,14 @@ export default function Home(props) {
 
   return (
     <div className={styles.content}>
+      <Head>
+        <title>Carlos González - React Native Developer</title>
+        <meta name="description" content="Fullstack Javascript developer" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        ></meta>
+      </Head>
       <section>
         <div className={`flex h-full lg:flex-row flex-col-reverse `}>
           <div className={styles.Aside}>
@@ -130,12 +128,24 @@ export default function Home(props) {
                 dangerouslySetInnerHTML={{ __html: content }}
               />
               <div className={`flex items-center justify-center  `}>
-                {/* TODO make carousel */}
-                <img
-                  className=" "
-                  src={data.images[0]}
-                  alt="Inkind Mobile App"
-                />
+                {data.youtube?.[0] ? (
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src={data.youtube?.[0]}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                ) : (
+                  <img
+                    className=" "
+                    src={data.images[0]}
+                    alt="Inkind Mobile App"
+                  />
+                )}
               </div>
             </div>
           </section>
@@ -147,10 +157,10 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-  const allPortfolio = getPortfolio();
-  const mdContent = getMdContent(allPortfolio);
+  const allPortfolio = getPortfolio()
+  const mdContent = getMdContent(allPortfolio)
 
   return {
     props: { portfolio: mdContent },
-  };
-};
+  }
+}
