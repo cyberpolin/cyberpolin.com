@@ -6,18 +6,21 @@ const GetQuote = ({ from, name, text }) => {
   const { executeRecaptcha } = useReCaptcha()
   const [status, setStatus] = useState("none") // loading, error, done, none
   const [data, setData] = useState()
-  const payload = {
-    from,
-    name,
-    text,
-  }
+  
 
-  async function getQuote() {
+  async function getQuote({ from, name, text }) {
+    const payload = {
+      from,
+      name,
+      text,
+    }
+
     setData()
     setStatus("loading")
 
     try {
       const token = await executeRecaptcha("hire_submit")
+
       const { data } = await fetchAPI.post("/api/hireme", {
         ...payload,
         token,

@@ -32,6 +32,7 @@ const HireMe = () => {
     validationSchema,
     onSubmit: (values: { name: string; from: string; text: string }) => {
       //@ts-ignore
+
       getQuote(values)
     },
   })
