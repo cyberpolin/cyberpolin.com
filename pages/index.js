@@ -1,14 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Next.module.sass";
+import { Viewport } from "next"
 
-import cyberpolin from "../public/img/cyberpolin.jpeg";
 
-import Skill from "../components/Skill";
-import { Name } from "../components/Name";
-import getMdContent, { getPortfolio } from "../lib/api";
+import cyberpolin from "../public/img/cyberpolin.jpeg"
+
+import Skill from "../components/Skill"
+import { Name } from "../components/Name"
+import getMdContent, { getPortfolio } from "../lib/api"
 import { useEffect, useState } from "react"
 import HireMe from "./components/HireMe"
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
 
 const skillNames = [
   "React Native",
