@@ -29,7 +29,7 @@ const GetQuote = ({ from, name, text }) => {
         setStatus("error")
       }
     } catch (error) {
-      setStatus("error")
+      setStatus("error", error)
     }
   }
 

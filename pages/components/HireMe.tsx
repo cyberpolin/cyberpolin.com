@@ -36,7 +36,6 @@ const HireMe = () => {
     },
   })
 
-  console.log("formik", formik)
   switch (status) {
     case "error":
       return (
