@@ -22,7 +22,6 @@ const GetQuote = ({ from, name, text }) => {
         ...payload,
         token,
       })
-      console.log("data >> ", data)
       if (!!data.success) {
         setStatus("success")
         setData(data)

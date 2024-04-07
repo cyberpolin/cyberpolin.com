@@ -27,17 +27,20 @@ export default function Home(props) {
   return (
     <div className={styles.content}>
       <section>
-        <div className={styles.Row}>
+        <div className={`flex h-full lg:flex-row flex-col-reverse `}>
           <div className={styles.Aside}>
             {/* Cyberpolin */}
             <Name>Carlos González</Name>
             <p className={styles.subtitle}>React Native Developer</p>
+
             <span className={styles.H2}>Skills</span>
-            {skillNames.map((skill, i) => (
-              <Skill key={i} level={skillValues[i]}>
-                {skill}{" "}
-              </Skill>
-            ))}
+            <div className="flex lg:block flex-wrap">
+              {skillNames.map((skill, i) => (
+                <Skill key={i} level={skillValues[i]}>
+                  {skill}{" "}
+                </Skill>
+              ))}
+            </div>
             <span className={styles.H2}>Contact Info</span>
             <ul className={styles.personalBullets}>
               <li>Calle el Aguila #344. Tabasco, Mexico</li>
@@ -49,27 +52,35 @@ export default function Home(props) {
               </li>
             </ul>
           </div>
-          <div className={styles.Content}>
-            <div className={styles.Hi}>
-              <div className={`${styles.personalInfoMargin}`}>
-                <div className={[styles.imageContainer]}>
+          <div
+            className={`flex items-center justify-center flex-grow lg:flex-grow-0  `}
+          >
+            <div className={`bg-bgColor flex content-center items-center`}>
+              <div
+                className={`p-5 lg:p-10 flex-column lg:block content-center lg: h-1/2`}
+              >
+                <div
+                  className={`mr-2 flex p-4
+                
+                `}
+                >
                   <Image
                     src={cyberpolin}
-                    className={styles.mainPicture}
+                    className={`rounded-full `}
                     width={180}
                     height={180}
                     alt="Carlos González aka Cyberpolin, fullstack JS developer"
                   />
                 </div>
                 <div className={styles.column}>
-                  <p>
+                  <p className="text-lg ld:text-xl pb-4 ">
                     Hey there, I am <b>Carlos Gonzáles</b>, aka{" "}
                     <a href="https://github.com/cyberpolin">@cyberpolin</a>. I
                     live in Mexico, and have 8+ years involve in development, at
                     first a lot of web, then Back end and five years from now
                     started with RN (React Native).
                   </p>
-                  <p>
+                  <p className="text-lg ld:text-xl pb-4 ">
                     I&#39;ve worked at my state government as a project manager,
                     so I know I can handle several projects at the time with the
                     right team, but also I am pretty good coding myself (which
@@ -77,7 +88,7 @@ export default function Home(props) {
                     attended a Dev boot camp and where I started working with
                     RN.
                   </p>
-                  <p>
+                  <p className="text-lg ld:text-xl pb-4 ">
                     Now I live in Mexico, where I&#39;m from and have being
                     working in several RN projects, some of them with Backend
                     developed by my self, some other with a BE team. My las work
@@ -95,17 +106,27 @@ export default function Home(props) {
       </section>
 
       {props.portfolio.map(({ data, content }, i) => {
-        const idOdd = i % 2
+        const isOdd = i % 2
         return (
           <section key={i}>
-            <div className={`${styles.Row} ${!idOdd && styles.odd}`}>
+            <div
+              className={`flex ${
+                isOdd
+                  ? "flex-col-reverse lg:flex-row"
+                  : "flex-col-reverse lg:flex-row-reverse"
+              }`}
+            >
               <div
                 className={`${styles.PortfolioAside}`}
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-              <div className={styles.Content}>
+              <div className={`flex items-center justify-center  `}>
                 {/* TODO make carousel */}
-                <img src={data.images[0]} alt="Inkind Mobile App" />
+                <img
+                  className=" "
+                  src={data.images[0]}
+                  alt="Inkind Mobile App"
+                />
               </div>
             </div>
           </section>
