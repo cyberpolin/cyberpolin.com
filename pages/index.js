@@ -87,7 +87,7 @@ export default function Home(props) {
             className={`flex items-center justify-center flex-grow lg:flex-grow-0   `}
           >
             <div
-              className={`bg-bgColor flex content-center items-center h-screen md:h-full lg:h-full`}
+              className={`bg-bgColor flex content-center items-start h-screen md:h-full`}
             >
               <div
                 className={`p-5 lg:p-10 flex-column lg:block content-center lg:h-1/2`}
